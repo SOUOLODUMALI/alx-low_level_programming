@@ -1,30 +1,30 @@
-# inclure  " main.h "
+#include "main.h"
 
-/* *
-* _strpbrk - recherche dans une chaîne l'un des ensembles d'octets
-* @s : chaîne à rechercher
-* @accept : chaîne à rechercher
-*
-* Return : pointeur vers l'octet de s qui correspond à l'un des octets de accept,
-* ou NULL si aucun octet de ce type n'est trouvé
+/**
+ * _strpbrk - searches a string for any of a set of bytes
+ * @s: string to search
+ * @accept: string to search for
+ *
+ * Return: pointer to the byte in s that matches one of the bytes in accept,
+ * or NULL if no such byte is found
  */
 
-char * _strpbrk ( char *s, char *accepter)
+char *_strpbrk(char *s, char *accept)
 {
- entier non signé i, j ;
-pour (i = 0 ; *(s + i); i++)
+unsigned int i, j;
+for (i = 0; *(s + i); i++)
 {
-pour (j = 0 ; *(accepter + j); j++)
+for (j = 0; *(accept + j); j++)
 {
-si (*(s + i) == *(accepter + j))
+if (*(s + i) == *(accept + j))
 {
-casser ;
+break;
 }
 }
-si (*(accepter + j) != ' \0 ' )
+if (*(accept + j) != '\0')
 {
-retour (s + je);
+return (s + i);
 }
 }
-retour ( 0 );
+return (0);
 }
